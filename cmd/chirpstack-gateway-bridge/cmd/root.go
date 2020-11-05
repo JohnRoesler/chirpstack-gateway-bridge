@@ -58,6 +58,7 @@ func init() {
 
 	viper.SetDefault("integration.mqtt.event_topic_template", "gateway/{{ .GatewayID }}/event/{{ .EventType }}")
 	viper.SetDefault("integration.mqtt.command_topic_template", "gateway/{{ .GatewayID }}/command/#")
+	viper.SetDefault("integration.mqtt.recreate_client_on_conn_lost", false)
 	viper.SetDefault("integration.mqtt.keep_alive", 30*time.Second)
 	viper.SetDefault("integration.mqtt.max_reconnect_interval", time.Minute)
 

@@ -56,11 +56,12 @@ type Config struct {
 		Marshaler string `mapstructure:"marshaler"`
 
 		MQTT struct {
-			EventTopicTemplate      string        `mapstructure:"event_topic_template"`
-			CommandTopicTemplate    string        `mapstructure:"command_topic_template"`
-			KeepAlive               time.Duration `mapstructure:"keep_alive"`
-			MaxReconnectInterval    time.Duration `mapstructure:"max_reconnect_interval"`
-			TerminateOnConnectError bool          `mapstructure:"terminate_on_connect_error"`
+			EventTopicTemplate       string        `mapstructure:"event_topic_template"`
+			CommandTopicTemplate     string        `mapstructure:"command_topic_template"`
+			RecreateClientOnConnLost bool          `mapstructure:"recreate_client_on_conn_lost"`
+			KeepAlive                time.Duration `mapstructure:"keep_alive"`
+			MaxReconnectInterval     time.Duration `mapstructure:"max_reconnect_interval"`
+			TerminateOnConnectError  bool          `mapstructure:"terminate_on_connect_error"`
 
 			Auth struct {
 				Type string `mapstructure:"type"`

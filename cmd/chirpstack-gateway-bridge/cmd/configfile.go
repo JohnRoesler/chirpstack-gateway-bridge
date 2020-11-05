@@ -224,6 +224,14 @@ marshaler="{{ .Integration.Marshaler }}"
   # Command topic template.
   command_topic_template="{{ .Integration.MQTT.CommandTopicTemplate }}"
 
+  # Recreate client on connection lost disables the mqtt client's native 
+  # 'auto reconnect' logic in favor of disconnecting and reconnecting the
+  # client. The recommended and default is 'false' as the client's native 'auto reconnect'
+  # is required for buffering messages in case the gateway bridge is offline. 
+  # However, there are cases when the connection is not re-established properly
+  # with this functionality. When false, a new connection is created when a connection is lost.
+  recreate_client_on_conn_lost="{{ .Integration.MQTT.RecreateClientOnConnLost }}"
+
   # Keep alive will set the amount of time (in seconds) that the client should
   # wait before sending a PING request to the broker. This will allow the client
   # to know that a connection has not been lost with the server.
